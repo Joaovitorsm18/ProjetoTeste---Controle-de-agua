@@ -1,3 +1,5 @@
+//teste
+
 const { passarFaixas } = require('./calculo.js')
 // Definição das variáveis
 const valorConta = 2833.98; // R$
