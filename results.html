@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,27 +12,36 @@
             margin: 0;
             padding: 20px;
         }
+
         h1 {
             text-align: center;
             color: #333;
             margin-bottom: 20px;
         }
-			table {
-		width: 30%;
-		border-collapse: collapse;
-		margin: 0 auto; /* Isso centraliza horizontalmente */
-		margin-bottom: 20px;
-		}
-        th, td {
-            border: 1px solid #ddd;
+
+        table {
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(127, 109, 228, 0.74);
+            width: 30%;
+            border-collapse: collapse;
+            margin: 0 auto;
+            /* Isso centraliza horizontalmente */
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #8a8a8a;
             padding: 8px;
             text-align: center;
-			
+
         }
+
         th {
-            background-color: #f2f2f2;
+            background-color: #ece7e7f8;
         }
-		 button {
+
+        button {
             background-color: #4caf50;
             color: white;
             padding: 10px 15px;
@@ -39,16 +49,18 @@
             border-radius: 4px;
             cursor: pointer;
             width: 30%;
-            margin: 20px auto; /* Centraliza horizontalmente */
-            display: block; /* Torna o botão um bloco para centralizar */
+            margin: 20px auto;
+            /* Centraliza horizontalmente */
+            display: block;
+            /* Torna o botão um bloco para centralizar */
         }
 
         button:hover {
             background-color: #45a049;
         }
-		
     </style>
 </head>
+
 <body>
     <h1>Resultados do Script</h1>
     <table>
@@ -83,8 +95,9 @@
         // Inserindo os resultados formatados na tabela
         document.getElementById('output').innerHTML = formatOutput(output);
     </script>
-	<form>
-	<button type="submit" formaction="/">Calcular Novamente</button>
-	</form>
+    <form>
+        <button type="submit" formaction="/">Calcular Novamente</button>
+    </form>
 </body>
+
 </html>
