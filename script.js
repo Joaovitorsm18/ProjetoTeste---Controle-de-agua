@@ -7,12 +7,7 @@ async function runScript(valorConta, consumoConta, numberOfApartments, consumosA
     // Dividir a string em substrings com base nos espaços em branco e converter para números de ponto flutuante
     const consumosApartamentos = consumosApartamentosIndividuaisSemEspaco.split(/\s+/).map(value => parseFloat(value));
 
-    /*
-        console.log('Valor da Conta:', valorConta);
-        console.log('Consumo da Conta:', consumoConta);
-        console.log('Número de Apartamentos:', numberOfApartments);
-        console.log('Consumo dos apartamentos:', consumosApartamentos);
-    */
+
 
     const taxaFixa = 36.93; // R$ por apartamento
 
