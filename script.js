@@ -1,48 +1,43 @@
-//teste
-
 const { passarFaixas } = require('./calculo.js')
 // Definição das variáveis
-const valorConta = 2833.98; // R$
-const consumoConta = 233; // M³
-const numberOfApartments = 12;
+async function runScript(valorConta, consumoConta, numberOfApartments, consumosApartamentosIndividuais) {
+    const consumosApartamentos = consumosApartamentosIndividuais.split(/\s+/).map(value => parseFloat(value.trim()));
+
+/*
+    console.log('Valor da Conta:', valorConta);
+    console.log('Consumo da Conta:', consumoConta);
+    console.log('Número de Apartamentos:', numberOfApartments);
+    console.log('Consumo dos apartamentos:', consumosApartamentos);
+*/	
+
 const taxaFixa = 36.93; // R$ por apartamento
 
 let consumoCondominio = 0;
 let valorCondomínio = 0;
-// Array de consumo de água por apartamento
-const consumosApartamentos = [34.371,
-    17.180,
-    5.778,
-    5.135,
-    16.147,
-    14.784,
-    17.478,
-    12.178,
-    10.041,
-    10.670,
-    39.251,
-    25.812]; // m³
+
 
 // Cálculo do total de consumo de água
-const consumoTotalApartamentos = consumosApartamentos.reduce((total, consumo) => total + consumo, 0);
+let consumoTotalApartamentos = consumosApartamentos.reduce((total, consumo) => total + consumo, 0);
 
 // Verifica se sobrará agua para o condomínio e adiciona ao final do array de consumosApartamentos
 if (consumoConta >= consumoTotalApartamentos) {
     consumoCondominio = consumoConta - consumoTotalApartamentos;
     consumosApartamentos.push(consumoCondominio);
 }
+ consumoTotalApartamentos = consumosApartamentos.reduce((total, consumo) => total + consumo, 0);
 
 // Cálculo do valor excedente (valor da conta menos o total das taxas fixas)
 const valorMinimoResidencial = taxaFixa * numberOfApartments;
 let valorExcedente = valorConta - valorMinimoResidencial;
-
+console.log(consumoTotalApartamentos);
+   
 // Verificação se o valor da primeira faixa ultrapassa o valor correto (3,83)
 let firstTierRate = valorExcedente / consumoTotalApartamentos;
 
 if (firstTierRate <= 3.83) {
     // Array para armazenar os valores multiplicados pela primeira faixa
     const resultPrimeiraFaixa = consumosApartamentos.map(consumo => consumo * firstTierRate);
-
+	
     if (consumoCondominio > 0) {
         const ultimoItem1 = resultPrimeiraFaixa[resultPrimeiraFaixa.length - 1];
         valorCondomínio = (ultimoItem1) / numberOfApartments;
@@ -67,5 +62,13 @@ if (firstTierRate <= 3.83) {
 else {
     passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, taxaFixa, consumoCondominio, valorCondomínio)
 }
+}
+// Pega os argumentos da linha de comando
 
+const valorConta = process.argv[2];
+const consumoConta = process.argv[3];
+const numberOfApartments = process.argv[4];
+const consumosApartamentosIndividuais = process.argv[5];
 
+// Chama a função principal com os argumentos
+runScript(valorConta, consumoConta, numberOfApartments, consumosApartamentosIndividuais);

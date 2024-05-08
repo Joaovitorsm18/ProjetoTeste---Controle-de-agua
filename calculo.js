@@ -1,6 +1,7 @@
 // função para passar para segunda faixa, visto que a primeira ultrapassou o limite
 function passarSegundaFaixa(consumosApartamentos) {
     // Criando o array apartamentoprimeirafaixa
+	
     const apartamentoPrimeiraFaixa = consumosApartamentos.map(consumo => {
         if (consumo > 5) {
             return 5;
@@ -88,7 +89,8 @@ function passarQuartaFaixa(consumosApartamentos) {
 // função que pega todos os parâmetros necessários para calcular as faixas e retornar no console quando for a correta
 function passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, taxaFixa, consumoCondominio, valorCondomínio) {
     firstTierRate = 3.83;
-
+	
+	//console.log(consumosApartamentos, valorExcedente, numberOfApartments, taxaFixa, consumoCondominio, valorCondomínio)
     //chamando a função para trasforamr consumos apartamentos em dois arrays
     const { apartamentoPrimeiraFaixa, apartamentoSegundaFaixa } = passarSegundaFaixa(consumosApartamentos);
 
@@ -105,7 +107,7 @@ function passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, 
 
     // Cálculo do valor de segunda faixa
     let secondTierRate = (valorExcedente - totalFirstTierValue) / consumoTotalSegundaFaixa;
-
+	
     // se a segunda faixa não ultrapassar o seu valor máximo, o resultado será retornado
     if (secondTierRate <= 8.152) {
         // Array para armazenar os valores multiplicados pela Segunda faixa
@@ -119,8 +121,10 @@ function passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, 
             resultPrimeiraFaixa.pop();
             resultSegundaFaixa.pop();
             consumosApartamentos.pop();
+			console.log("TÔ aquiiiii")
         }
-        else {
+        
+			
             console.log('Valor da primeira faixa: ' + firstTierRate.toFixed(4));
             console.log('Valor da segunda faixa: ' + secondTierRate.toFixed(4));
             console.log('Valor do condomínio: R$ ' + (valorCondomínio.toFixed(2)));
@@ -134,7 +138,7 @@ function passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, 
             // Saída dos resultados
             console.log(`Cobrança por apartamento:`);
             cobrancasPorApartamento.forEach((cobranca, index) => console.log(`Apartamento ${index + 1}: R$ ${cobranca.toFixed(2)}`));
-        }
+        
     }
     else {
         let firstTierRate = 3.83;
@@ -246,11 +250,16 @@ function passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, 
                     consumosApartamentos.pop();
                 }
 
-                console.log('Valor da primeira faixa: ' + firstTierRate.toFixed(4));
-                console.log('Valor da segunda faixa: ' + secondTierRate.toFixed(4));
-                console.log('Valor da terceira faixa: ' + thirdTierRate.toFixed(4));
-                console.log('Valor da quarta faixa: ' + fourthTierRate.toFixed(4));
-                console.log('Valor do condomínio: R$ ' + (valorCondomínio.toFixed(2)));
+                console.log('Valor da 1° faixa: R$' + firstTierRate.toFixed(4));
+				console.log('');
+                console.log('Valor da 2° faixa: R$' + secondTierRate.toFixed(4));
+				console.log('');
+                console.log('Valor da 3° faixa: R$' + thirdTierRate.toFixed(4));
+				console.log('');
+                console.log('Valor da 4° faixa: R$' + fourthTierRate.toFixed(4));
+				console.log('');
+                console.log('Valor do condomínio: R$' + (valorCondomínio.toFixed(2)));
+				console.log('');
                 // Cálculo da cobrança para cada apartamento
                 const cobrancasPorApartamento = consumosApartamentos.map((consumo, index) => {
                     const firstTierValue = resultPrimeiraFaixa[index]; // Acesso ao valor correspondente de resultPrimeiraFaixa usando o índice
