@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <script>
-        window.onload = function() {
+        window.onload = function () {
             const params = new URLSearchParams(window.location.search);
             const errorMessage = params.get('error');
             const successMessage = params.get('success');
-            
+
             if (errorMessage) {
                 alert(errorMessage);
             }
@@ -35,13 +35,13 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            width: 350px;
         }
 
         h1 {
             text-align: center;
             color: #333;
-            margin-bottom: 20px;
+            margin-bottom: 0 0 20px;
         }
 
         label {
@@ -76,6 +76,10 @@
             box-sizing: border-box;
         }
 
+        .numberOfApartments {
+            width: calc(25%);
+        }
+
         button {
             background-color: #4caf50;
             color: white;
@@ -94,7 +98,7 @@
 
 <body>
     <form action="/process-login" method="post">
-        <h1>Login</h1>
+        <h1>Calculadora de água</h1>
         <label for="valorConta">Valor da conta:</label>
         <input type="text" id="valorConta" name="valorConta" required>
 
@@ -102,29 +106,49 @@
         <label for="consumoConta">Consumo da conta:</label>
         <input type="text" id="consumoConta" name="consumoConta" required>
 
-	<label for="numberOfApartments">Número de apartamentos:</label>
-        <input type="text" id="numberOfApartments" name="numberOfApartments" required>
-	
-        
+        <label for="numberOfApartments">Número de apartamentos:</label>
+        <input class="numberOfApartments" type="number" id="numberOfApartments" name="numberOfApartments" required>
+
+
         <label for="consumosApartamentosIndividuais">Consumo dos Apartamento (separado por espaço):</label>
         <input type="text" id="consumosApartamentosIndividuais" name="consumosApartamentosIndividuais" required>
 
         <button type="submit">Login</button>
     </form>
-	<script>
-  // Função para substituir vírgulas por pontos nos valores dos campos de entrada
-  function substituirVirgulasPorPontos() {
-    const inputs = document.querySelectorAll('input[type="text"]');
-    inputs.forEach(input => {
-      input.addEventListener('change', function() {
-        this.value = this.value.replace(/,/g, '.');
-      });
-    });
-  }
+    <script>// Função para substituir vírgulas por pontos nos valores dos campos de entrada
+        function substituirVirgulasPorPontos() {
+            const inputs = document.querySelectorAll('input[type="text"]');
+            inputs.forEach(input => {
+                input.addEventListener('change', function () {
+                    this.value = this.value.replace(/,/g, '.');
+                });
+            });
+        }
 
-  // Chamar a função ao carregar a página
-  window.onload = substituirVirgulasPorPontos;
-</script>
+
+        // Função para remover "R$" e espaços em branco, e ajustar os pontos
+        function removerR$() {
+            const inputConta = document.querySelectorAll('input[id="valorConta"]');
+            inputConta.forEach(input => {
+                input.addEventListener('change', function () {
+                    let valor = this.value;
+                    // Remover "R$" e espaços em branco
+                    valor = valor.replace(/\s*R\$\s*|\s+/g, '');
+                    // Remover pontos extras antes da primeira vírgula decimal
+                    valor = valor.replace(/(\d+)\.(\d+),(\d+)/g, '$1$2.$3');
+                    this.value = valor;
+                });
+            });
+        }
+
+        // Chamar as funções ao carregar a página
+        window.onload = function () {
+            removerR$();
+            substituirVirgulasPorPontos();
+
+        };
+
+    </script>
 
 </body>
 
