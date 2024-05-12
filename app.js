@@ -16,11 +16,11 @@ app.get('/results', (req, res) => {
 
 
 app.post('/process-login', (req, res) => {
-    const { valorConta, consumoConta, numberOfApartments, consumosApartamentosIndividuais} = req.body;
-	
+    const { valorConta, consumoConta, numberOfApartments, numberOfLojas, consumosApartamentosIndividuais } = req.body;
+
     //console.log('Dados recebidos no lado do servidor:', valorConta, consumoConta, numberOfApartments, consumosApartamentosIndividuais);
 
-    exec(`node script.js "${valorConta}" "${consumoConta}" "${numberOfApartments}" "${consumosApartamentosIndividuais}"`, (error, stdout, stderr) => {
+    exec(`node script.js "${valorConta}" "${consumoConta}" "${numberOfApartments}" "${numberOfLojas}" "${consumosApartamentosIndividuais}"`, (error, stdout, stderr) => {
         if (error) {
             console.error(`Erro na execução do script: ${error.message}`);
             res.status(500).json({ error: `Erro na execução do script: ${error.message}` });
