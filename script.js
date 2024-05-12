@@ -14,7 +14,6 @@ async function runScript(valorConta, consumoConta, numberOfApartments, numberOfL
     let consumoCondominio = 0;
     let valorCondomínio = 0;
 
-
     // Cálculo do total de consumo de água
     let consumoTotalApartamentos = consumosApartamentos.reduce((total, consumo) => total + consumo, 0);
 
@@ -29,7 +28,6 @@ async function runScript(valorConta, consumoConta, numberOfApartments, numberOfL
     if (numberOfLojas != 0) {
         passarFaixasLoja(valorConta, consumosApartamentos, consumoTotalApartamentos, numberOfApartments, numberOfLojas, consumoCondominio, valorCondomínio)
     } else {
-
         // Cálculo do valor excedente (valor da conta menos o total das taxas fixas)
         const valorMinimoResidencial = taxaFixa * numberOfApartments;
         let valorExcedente = valorConta - valorMinimoResidencial;
@@ -49,7 +47,7 @@ async function runScript(valorConta, consumoConta, numberOfApartments, numberOfL
                 consumosApartamentos.pop();
             }
 
-            console.log('Valor da primeira faixa: ' + firstTierRate.toFixed(4));
+            console.log('Valor da 1° faixa: ' + firstTierRate.toFixed(4));
             console.log('Valor do condomínio: R$ ' + (valorCondomínio.toFixed(2)));
             // Cálculo da cobrança para cada apartamento
             const cobrancasPorApartamento = consumosApartamentos.map((consumo, index) => {

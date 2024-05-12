@@ -136,17 +136,14 @@ function passarQuintaFaixa(consumosApartamentos) {
 function passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, taxaFixa, consumoCondominio, valorCondomínio) {
     firstTierRate = 3.83;
 
-    //console.log(consumosApartamentos, valorExcedente, numberOfApartments, taxaFixa, consumoCondominio, valorCondomínio)
     //chamando a função para trasforamr consumos apartamentos em dois arrays
     const { apartamentoPrimeiraFaixa, apartamentoSegundaFaixa } = passarSegundaFaixa(consumosApartamentos);
 
     // Array para armazenar os valores multiplicados pela primeira faixa
     const resultPrimeiraFaixa = apartamentoPrimeiraFaixa.map(consumo => consumo * firstTierRate);
 
-
     // Cálculo do valor total da primeira faixa   
     const totalFirstTierValue = resultPrimeiraFaixa.reduce((total, value) => total + value, 0);
-
 
     // Cálculo do consumo total da segunda faixa
     const consumoTotalSegundaFaixa = apartamentoSegundaFaixa.reduce((total, consumo) => total + consumo, 0);
@@ -194,10 +191,8 @@ function passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, 
         // Array para armazenar os valores multiplicados pela primeira faixa
         const resultPrimeiraFaixa = apartamentoPrimeiraFaixa.map(consumo => consumo * firstTierRate);
 
-
         // Cálculo do valor total da primeira faixa   
         const totalFirstTierValue = resultPrimeiraFaixa.reduce((total, value) => total + value, 0);
-
 
         // Array para armazenar os valores multiplicados pela Segunda faixa
         const resultSegundaFaixa = apartamentoSegundaFaixa.map(consumo => consumo * secondTierRate);
@@ -235,7 +230,7 @@ function passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, 
             const cobrancasPorApartamento = consumosApartamentos.map((consumo, index) => {
                 const firstTierValue = resultPrimeiraFaixa[index]; // Acesso ao valor correspondente de resultPrimeiraFaixa usando o índice
                 const secondTierValue = resultSegundaFaixa[index]; // Acesso ao valor correspondente de resultSegundaFaixa usando o índice
-                const thirdTierValue = resultTerceiraFaixa[index]; // Acesso ao valor correspondente de resultSegundaFaixa usando o índice
+                const thirdTierValue = resultTerceiraFaixa[index]; // Acesso ao valor correspondente de resultTerceiraFaixa usando o índice
                 return firstTierValue + secondTierValue + thirdTierValue + taxaFixa + valorCondomínio;
             });
 
@@ -275,7 +270,7 @@ function passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, 
 
 
             if (fourthTierRate <= 17.245) {
-                // Array para armazenar os valores multiplicados pela Terceira faixa
+                // Array para armazenar os valores multiplicados pela Quarta faixa
                 const resultQuartaFaixa = apartamentoQuartaFaixa.map(consumo => consumo * fourthTierRate);
 
 
@@ -304,8 +299,8 @@ function passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, 
                 const cobrancasPorApartamento = consumosApartamentos.map((consumo, index) => {
                     const firstTierValue = resultPrimeiraFaixa[index]; // Acesso ao valor correspondente de resultPrimeiraFaixa usando o índice
                     const secondTierValue = resultSegundaFaixa[index]; // Acesso ao valor correspondente de resultSegundaFaixa usando o índice
-                    const thirdTierValue = resultTerceiraFaixa[index]; // Acesso ao valor correspondente de resultSegundaFaixa usando o índice
-                    const fourthTierRate = resultQuartaFaixa[index]; // Acesso ao valor correspondente de resultSegundaFaixa usando o índice
+                    const thirdTierValue = resultTerceiraFaixa[index]; // Acesso ao valor correspondente de resultTerceirafaixa usando o índice
+                    const fourthTierRate = resultQuartaFaixa[index]; // Acesso ao valor correspondente de resultQuartaFaixa usando o índice
                     return firstTierValue + secondTierValue + thirdTierValue + fourthTierRate + taxaFixa + valorCondomínio;
                 });
 
@@ -397,10 +392,8 @@ function passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, 
                     console.log('Não foi possível calcular')
                 }
             }
-
         }
     }
-
 }
 
 

@@ -1,8 +1,4 @@
 // função para passar para segunda faixa, visto que a primeira ultrapassou o limite
-
-const { Console } = require("console");
-
-
 function passarSegundaFaixa(consumosApartamentos) {
     // Criando o array apartamentoprimeirafaixa
 
@@ -23,7 +19,6 @@ function passarSegundaFaixa(consumosApartamentos) {
 
     return { apartamentoPrimeiraFaixa, apartamentoSegundaFaixa };
 }
-
 // função para passar para terceira faixa, visto que a segunda ultrapassou o limite
 function passarTerceiraFaixa(consumosApartamentos) {
     // Criando o array apartamentoprimeirafaixa
@@ -292,9 +287,9 @@ function passarFaixasLoja(valorConta, consumosApartamentos, consumoTotalApartame
 
                 }
 
-                console.log('Valor da primeira faixa: ' + firstTierRate.toFixed(4));
-                console.log('Valor da segunda faixa: ' + secondTierRate.toFixed(4));
-                console.log('Valor da terceira faixa: ' + thirdTierRate.toFixed(4));
+                console.log('Valor da 1° faixa: ' + firstTierRate.toFixed(4));
+                console.log('Valor da 2° faixa: ' + secondTierRate.toFixed(4));
+                console.log('Valor da 3° faixa: ' + thirdTierRate.toFixed(4));
                 console.log('Valor do condomínio: R$ ' + (valorCondomínio.toFixed(2)));
 
                 const consumosLoja = consumosApartamentos.slice(numberOfApartments);
@@ -308,14 +303,14 @@ function passarFaixasLoja(valorConta, consumosApartamentos, consumoTotalApartame
                 const cobrancasPorApartamento = consumosApartamentos.map((consumo, index) => {
                     const firstTierValue = resultPrimeiraFaixa[index]; // Acesso ao valor correspondente de resultPrimeiraFaixa usando o índice
                     const secondTierValue = resultSegundaFaixa[index]; // Acesso ao valor correspondente de resultSegundaFaixa usando o índice
-                    const thirdTierValue = resultTerceiraFaixa[index]; // Acesso ao valor correspondente de resultSegundaFaixa usando o índice
+                    const thirdTierValue = resultTerceiraFaixa[index]; // Acesso ao valor correspondente de resultTerceiraFaixa usando o índice
                     return firstTierValue + secondTierValue + thirdTierValue + taxaFixaApartamentos + valorCondomínio;
                 });
 
                 const cobrancasPorLoja = consumosLoja.map((consumo, index) => {
                     const firstTierValue = resultPrimeiraFaixaLoja[index]; // Acesso ao valor correspondente de resultPrimeiraFaixa usando o índice
                     const secondTierValue = resultSegundaFaixaLoja[index]; // Acesso ao valor correspondente de resultSegundaFaixa usando o índice
-                    const thirdTierValue = resultTerceiraFaixaLoja[index]; // Acesso ao valor correspondente de resultSegundaFaixa usando o índice
+                    const thirdTierValue = resultTerceiraFaixaLoja[index]; // Acesso ao valor correspondente de resultTerceiraFaixa usando o índice
                     return firstTierValue + secondTierValue + thirdTierValue + taxaFixaLoja;
                 });
 
@@ -355,7 +350,7 @@ function passarFaixasLoja(valorConta, consumosApartamentos, consumoTotalApartame
                 let fourthTierRate = (valorExcedenteComLoja - totalFirstTierValue - totalSecondTierValue - totalThirdTierValue) / consumoTotalQuartaFaixa;
 
                 if (fourthTierRate <= 17.245) {
-                    // Array para armazenar os valores multiplicados pela Terceira faixa
+                    // Array para armazenar os valores multiplicados pela Quarta faixa
                     const resultQuartaFaixa = apartamentoQuartaFaixa.map(consumo => consumo * fourthTierRate);
 
                     if (consumoCondominio > 0) {
@@ -392,16 +387,16 @@ function passarFaixasLoja(valorConta, consumosApartamentos, consumoTotalApartame
                     const cobrancasPorApartamento = consumosApartamentos.map((consumo, index) => {
                         const firstTierValue = resultPrimeiraFaixa[index]; // Acesso ao valor correspondente de resultPrimeiraFaixa usando o índice
                         const secondTierValue = resultSegundaFaixa[index]; // Acesso ao valor correspondente de resultSegundaFaixa usando o índice
-                        const thirdTierValue = resultTerceiraFaixa[index]; // Acesso ao valor correspondente de resultSegundaFaixa usando o índice
-                        const fourthTierRate = resultQuartaFaixa[index]; // Acesso ao valor correspondente de resultSegundaFaixa usando o índice
+                        const thirdTierValue = resultTerceiraFaixa[index]; // Acesso ao valor correspondente de resultTerceiraFaixa usando o índice
+                        const fourthTierRate = resultQuartaFaixa[index]; // Acesso ao valor correspondente de resultQuartaFaixa usando o índice
                         return firstTierValue + secondTierValue + thirdTierValue + fourthTierRate + taxaFixaApartamentos + valorCondomínio;
                     });
 
                     const cobrancasPorLoja = consumosLoja.map((consumo, index) => {
                         const firstTierValue = resultPrimeiraFaixaLoja[index]; // Acesso ao valor correspondente de resultPrimeiraFaixa usando o índice
                         const secondTierValue = resultSegundaFaixaLoja[index]; // Acesso ao valor correspondente de resultSegundaFaixa usando o índice
-                        const thirdTierValue = resultTerceiraFaixaLoja[index]; // Acesso ao valor correspondente de resultSegundaFaixa usando o índice
-                        const fourthTierValue = resultQuartaFaixaLoja[index]; // Acesso ao valor correspondente de resultSegundaFaixa usando o índice
+                        const thirdTierValue = resultTerceiraFaixaLoja[index]; // Acesso ao valor correspondente de resultTerceiraFaixa usando o índice
+                        const fourthTierValue = resultQuartaFaixaLoja[index]; // Acesso ao valor correspondente de resultQuartaFaixa usando o índice
                         return firstTierValue + secondTierValue + thirdTierValue + fourthTierValue + taxaFixaLoja;
                     });
 
@@ -499,9 +494,9 @@ function passarFaixasLoja(valorConta, consumosApartamentos, consumoTotalApartame
                         const cobrancasPorLoja = consumosLoja.map((consumo, index) => {
                             const firstTierValue = resultPrimeiraFaixaLoja[index]; // Acesso ao valor correspondente de resultPrimeiraFaixa usando o índice
                             const secondTierValue = resultSegundaFaixaLoja[index]; // Acesso ao valor correspondente de resultSegundaFaixa usando o índice
-                            const thirdTierValue = resultTerceiraFaixaLoja[index]; // Acesso ao valor correspondente de resultSegundaFaixa usando o índice
-                            const fourthTierValue = resultQuartaFaixaLoja[index]; // Acesso ao valor correspondente de resultSegundaFaixa usando o índice
-                            const fifthTierValue = resultQuintaFaixaLoja[index]; // Acesso ao valor correspondente de resultSegundaFaixa usando o índic
+                            const thirdTierValue = resultTerceiraFaixaLoja[index]; // Acesso ao valor correspondente de resultTerceiraFaixa usando o índice
+                            const fourthTierValue = resultQuartaFaixaLoja[index]; // Acesso ao valor correspondente de resultQuartaFaixa usando o índice
+                            const fifthTierValue = resultQuintaFaixaLoja[index]; // Acesso ao valor correspondente de resultQuintaFaixa usando o índice
                             return firstTierValue + secondTierValue + thirdTierValue + fourthTierValue + fifthTierValue + taxaFixaLoja;
                         });
 
@@ -517,10 +512,8 @@ function passarFaixasLoja(valorConta, consumosApartamentos, consumoTotalApartame
                         console.log('Não foi possível calcular')
                     }
                 }
-
             }
         }
-
     }
 }
 
