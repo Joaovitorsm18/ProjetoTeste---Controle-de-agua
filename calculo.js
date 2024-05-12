@@ -389,7 +389,9 @@ function passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, 
 
                 }
                 else {
-                    console.log('Não foi possível calcular')
+                    alert('erro no calculo');
+                    console.log('Resultado');
+                    console.log('Não foi possível calcular');
                 }
             }
         }

@@ -1,19 +1,19 @@
 const { exec } = require('child_process');
 const express = require('express');
 const app = express();
+const path = require('path');
 const port = 3000;
 
 app.use(express.urlencoded({ extended: true }));
-
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/login.html');
+    const loginPath = path.join(__dirname, '..', 'login.html');
+    res.sendFile(loginPath);
 });
+
 app.get('/results', (req, res) => {
-    res.sendFile(__dirname + '/results.html');
+    const resultsPath = path.join(__dirname, '..', 'results.html');
+    res.sendFile(resultsPath);
 });
-
-
-
 
 app.post('/process-login', (req, res) => {
     const { valorConta, consumoConta, numberOfApartments, numberOfLojas, consumosApartamentosIndividuais } = req.body;
@@ -39,3 +39,5 @@ app.post('/process-login', (req, res) => {
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
 });
+
+module.exports = app;

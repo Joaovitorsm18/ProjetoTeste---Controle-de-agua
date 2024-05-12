@@ -509,7 +509,7 @@ function passarFaixasLoja(valorConta, consumosApartamentos, consumoTotalApartame
                     }
 
                     else {
-                        console.log('Não foi possível calcular')
+                        console.log('Nao foi possivel calcular');
                     }
                 }
             }
