@@ -4,5 +4,8 @@
   },
   "dependencies": {
     "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.11"
   }
 }
