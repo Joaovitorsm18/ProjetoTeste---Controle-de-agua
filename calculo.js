@@ -19,7 +19,6 @@ function passarSegundaFaixa(consumosApartamentos) {
 
     return { apartamentoPrimeiraFaixa, apartamentoSegundaFaixa };
 }
-
 // função para passar para terceira faixa, visto que a segunda ultrapassou o limite
 function passarTerceiraFaixa(consumosApartamentos) {
     // Criando o array apartamentoprimeirafaixa
@@ -373,12 +372,12 @@ function passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, 
                         consumosApartamentos.pop();
                     }
 
-                    console.log('Valor da 1° faixa: R$' + firstTierRate.toFixed(4));
-                    console.log('Valor da 2° faixa: R$' + secondTierRate.toFixed(4));
-                    console.log('Valor da 3° faixa: R$' + thirdTierRate.toFixed(4));
-                    console.log('Valor da 4° faixa: R$' + fourthTierRate.toFixed(4));
-                    console.log('Valor da 5° faixa: R$' + fifthTierRate.toFixed(4));
-                    console.log('Valor do condomínio: R$' + (valorCondomínio.toFixed(2)));
+                    console.log('Valor da 1° faixa: R$ ' + firstTierRate.toFixed(4));
+                    console.log('Valor da 2° faixa: R$ ' + secondTierRate.toFixed(4));
+                    console.log('Valor da 3° faixa: R$ ' + thirdTierRate.toFixed(4));
+                    console.log('Valor da 4° faixa: R$ ' + fourthTierRate.toFixed(4));
+                    console.log('Valor da 5° faixa: R$ ' + fifthTierRate.toFixed(4));
+                    console.log('Valor do condomínio: R$ ' + (valorCondomínio.toFixed(2)));
                     // Cálculo da cobrança para cada apartamento
                     const cobrancasPorApartamento = consumosApartamentos.map((consumo, index) => {
                         const firstTierValue = resultPrimeiraFaixa[index]; // Acesso ao valor correspondente de resultPrimeiraFaixa usando o índice
@@ -392,6 +391,7 @@ function passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, 
                     // Saída dos resultados
                     console.log(`Cobrança por apartamento:`);
                     cobrancasPorApartamento.forEach((cobranca, index) => console.log(`Apartamento ${index + 1}: R$ ${cobranca.toFixed(2)}`));
+
                 }
                 else {
                     console.log('Não foi possível calcular')
