@@ -86,13 +86,15 @@
             });
             return formattedOutput;
         }
-
         // Obtendo os resultados passados pela URL
         const urlParams = new URLSearchParams(window.location.search);
         const output = urlParams.get('output');
 
         // Inserindo os resultados formatados na tabela
         document.getElementById('output').innerHTML = formatOutput(output);
+
+        // Limpa a URL após os resultados serem exibidos na tabela
+        window.history.replaceState({}, document.title, window.location.pathname);
     </script>
     <form>
         <button type="submit" formaction="/">Calcular Novamente</button>
