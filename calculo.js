@@ -222,22 +222,26 @@ function passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, 
                 consumosApartamentos.pop();
             }
 
-            console.log('Valor da 1° faixa: ' + firstTierRate.toFixed(4));
-            console.log('Valor da 2° faixa: ' + secondTierRate.toFixed(4));
-            console.log('Valor da 3° faixa: ' + thirdTierRate.toFixed(4));
-            console.log('Valor do condomínio: R$ ' + (valorCondomínio.toFixed(2)));
-            // Cálculo da cobrança para cada apartamento
             const cobrancasPorApartamento = consumosApartamentos.map((consumo, index) => {
-                const firstTierValue = resultPrimeiraFaixa[index]; // Acesso ao valor correspondente de resultPrimeiraFaixa usando o índice
-                const secondTierValue = resultSegundaFaixa[index]; // Acesso ao valor correspondente de resultSegundaFaixa usando o índice
-                const thirdTierValue = resultTerceiraFaixa[index]; // Acesso ao valor correspondente de resultTerceiraFaixa usando o índice
+                const firstTierValue = resultPrimeiraFaixa[index];
+                const secondTierValue = resultSegundaFaixa[index];
+                const thirdTierValue = resultTerceiraFaixa[index];
                 return firstTierValue + secondTierValue + thirdTierValue + taxaFixa + valorCondomínio;
             });
 
-            // Saída dos resultados
-            console.log(`Cobrança por apartamento:`);
-            cobrancasPorApartamento.forEach((cobranca, index) => console.log(`Apartamento ${index + 1}: R$ ${cobranca.toFixed(2)}`));
+            // Construir o objeto de resultado
+            const resultado = {
+                valorFaixa1: firstTierRate.toFixed(4),
+                valorFaixa2: secondTierRate.toFixed(4),
+                valorFaixa3: thirdTierRate.toFixed(4),
+                valorCondominio: valorCondomínio.toFixed(2),
+                cobrancaPorApartamento: cobrancasPorApartamento.map((cobranca, index) => ({
+                    [`Apartamento ${index + 1}`]: `R$ ${cobranca.toFixed(2)}`
+                }))
+            };
 
+            // Imprimir o objeto como JSON
+            console.log(JSON.stringify(resultado));
         }
         else {
             let firstTierRate = 3.83;
