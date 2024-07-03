@@ -1,14 +1,13 @@
 const { exec } = require('child_process');
 const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const app = express();
 const path = require('path');
-const port = 3000;
+const port = 3001;
 
-app.use(express.urlencoded({ extended: true }));
-app.get('/', (req, res) => {
-    const loginPath = path.join(__dirname, '..', 'login.html');
-    res.sendFile(loginPath);
-});
+app.use(bodyParser.json());
+app.use(cors());
 
 app.get('/results', (req, res) => {
     const resultsPath = path.join(__dirname, '..', 'results.html');
@@ -31,8 +30,9 @@ app.post('/process-login', (req, res) => {
             res.status(500).json({ error: `Erro no script: ${stderr}` });
             return;
         }
-        console.log(`Resultado do script: ${stdout}`);
-        res.redirect(`/results?output=${stdout}`);
+        const resultado = JSON.parse(stdout);
+        console.log('Resultado do script:', resultado);
+        res.json(resultado);
     });
 });
 
