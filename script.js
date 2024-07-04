@@ -2,12 +2,15 @@ const { type } = require('os');
 const { passarFaixas } = require('./calculo.js');
 const { passarFaixasLoja } = require('./calculoLoja.js');
 // Definição das variáveis
-async function runScript(valorConta, consumoConta, numberOfApartments, numberOfLojas, consumosApartamentosIndividuais) {
+async function runScript(valorConta, consumoConta, numberOfApartments, numberOfLojas, consumosApartamentosIndividuais, apartamentos) {
     // Remover espaço em branco após o último valor na string
     const consumosApartamentosIndividuaisSemEspaco = consumosApartamentosIndividuais.trim();
 
     // Dividir a string em substrings com base nos espaços em branco e converter para números de ponto flutuante
     const consumosApartamentos = consumosApartamentosIndividuaisSemEspaco.split(/\s+/).map(value => parseFloat(value));
+
+    // Transforme a string em um array de números de apartamentos
+    const apartamentosArray = apartamentos.split(',').map(apartamento => apartamento.trim());
 
     const taxaFixa = 36.93; // R$ por apartamento
 
@@ -47,21 +50,24 @@ async function runScript(valorConta, consumoConta, numberOfApartments, numberOfL
                 consumosApartamentos.pop();
             }
 
-            console.log('Valor da 1° faixa: ' + firstTierRate.toFixed(4));
-            console.log('Valor do condomínio: R$ ' + (valorCondomínio.toFixed(2)));
-            // Cálculo da cobrança para cada apartamento
             const cobrancasPorApartamento = consumosApartamentos.map((consumo, index) => {
                 const firstTierValue = resultPrimeiraFaixa[index]; // Acesso ao valor correspondente de resultPrimeiraFaixa usando o índice
                 return firstTierValue + taxaFixa + valorCondomínio;
             });
 
-            // Saída dos resultados
-            console.log(`Cobrança por apartamento:`);
-            cobrancasPorApartamento.forEach((cobranca, index) => console.log(`Apartamento ${index + 1}: R$ ${cobranca.toFixed(2)}`));
+            const resultado = {
+                valorFaixa1: firstTierRate.toFixed(4),
+                valorCondominio: valorCondomínio.toFixed(2),
+                cobrancaPorApartamento: cobrancasPorApartamento.map((cobranca, index) => ({
+                    [`${apartamentosArray[index]}`]: `R$ ${cobranca.toFixed(2)}`
+                }))
+            };
 
+            // Imprimir o objeto como JSON
+            console.log(JSON.stringify(resultado));
         }
         else {
-            passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, taxaFixa, consumoCondominio, valorCondomínio)
+            passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, taxaFixa, consumoCondominio, valorCondomínio, apartamentosArray)
         }
     }
 }
@@ -72,6 +78,7 @@ const consumoConta = process.argv[3];
 const numberOfApartments = process.argv[4];
 const numberOfLojas = process.argv[5];
 const consumosApartamentosIndividuais = process.argv[6];
+const apartamentos = process.argv[7];
 
 // Chama a função principal com os argumentos
-runScript(valorConta, consumoConta, numberOfApartments, numberOfLojas, consumosApartamentosIndividuais);
+runScript(valorConta, consumoConta, numberOfApartments, numberOfLojas, consumosApartamentosIndividuais, apartamentos);
