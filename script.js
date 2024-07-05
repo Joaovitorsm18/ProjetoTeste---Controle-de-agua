@@ -2,7 +2,7 @@ const { type } = require('os');
 const { passarFaixas } = require('./calculo.js');
 const { passarFaixasLoja } = require('./calculoLoja.js');
 // Definição das variáveis
-async function runScript(valorConta, consumoConta, numberOfApartments, numberOfLojas, consumosApartamentosIndividuais, apartamentos) {
+async function runScript(valorConta, consumoConta, numberOfApartments, numberOfLojas, consumosApartamentosIndividuais, apartamentos, lojas) {
     // Remover espaço em branco após o último valor na string
     const consumosApartamentosIndividuaisSemEspaco = consumosApartamentosIndividuais.trim();
 
@@ -12,6 +12,8 @@ async function runScript(valorConta, consumoConta, numberOfApartments, numberOfL
     // Transforme a string em um array de números de apartamentos
     const apartamentosArray = apartamentos.split(',').map(apartamento => apartamento.trim());
 
+    // Transforme a string em um array de números de lojas
+    const lojasArray = lojas.split(',').map(loja => loja.trim());
     const taxaFixa = 36.93; // R$ por apartamento
 
     let consumoCondominio = 0;
@@ -29,7 +31,7 @@ async function runScript(valorConta, consumoConta, numberOfApartments, numberOfL
     //verifica se tem loja, caso verdadeiro, vai para calculoLojas
     numberOfLojas = parseInt(numberOfLojas)
     if (numberOfLojas != 0) {
-        passarFaixasLoja(valorConta, consumosApartamentos, consumoTotalApartamentos, numberOfApartments, numberOfLojas, consumoCondominio, valorCondomínio)
+        passarFaixasLoja(valorConta, consumosApartamentos, consumoTotalApartamentos, numberOfApartments, numberOfLojas, consumoCondominio, valorCondomínio, apartamentosArray, lojasArray)
     } else {
         // Cálculo do valor excedente (valor da conta menos o total das taxas fixas)
         const valorMinimoResidencial = taxaFixa * numberOfApartments;
@@ -79,6 +81,7 @@ const numberOfApartments = process.argv[4];
 const numberOfLojas = process.argv[5];
 const consumosApartamentosIndividuais = process.argv[6];
 const apartamentos = process.argv[7];
+const lojas = process.argv[8];
 
 // Chama a função principal com os argumentos
-runScript(valorConta, consumoConta, numberOfApartments, numberOfLojas, consumosApartamentosIndividuais, apartamentos);
+runScript(valorConta, consumoConta, numberOfApartments, numberOfLojas, consumosApartamentosIndividuais, apartamentos, lojas);
