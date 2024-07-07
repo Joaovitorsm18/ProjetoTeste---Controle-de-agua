@@ -410,7 +410,7 @@ function passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, 
                     // Imprimir o objeto como JSON
                     console.log(JSON.stringify(resultado));
                 } else {
-                    console.log('Erro: ', 'Calculo passou por todas as faixas ')
+                    console.log(JSON.stringify({ Erro: ' Calculo passou por todas as faixas 😢 ' }))
                 }
             }
         }

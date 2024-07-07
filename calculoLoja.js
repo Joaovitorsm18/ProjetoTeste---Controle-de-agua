@@ -531,7 +531,7 @@ function passarFaixasLoja(valorConta, consumosApartamentos, consumoTotalApartame
                     }
 
                     else {
-                        console.log('Erro: ', 'Calculo passou por todas as faixas ')
+                        console.log(JSON.stringify({ Erro: ' Calculo passou por todas as faixas 😢 ' }))
 
                     }
                 }
