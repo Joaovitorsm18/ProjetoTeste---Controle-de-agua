@@ -62,7 +62,11 @@ async function runScript(valorConta, consumoConta, numberOfApartments, numberOfL
                 valorCondominio: valorCondomínio.toFixed(2),
                 cobrancaPorApartamento: cobrancasPorApartamento.map((cobranca, index) => ({
                     [`${apartamentosArray[index]}`]: `R$ ${cobranca.toFixed(2)}`
-                }))
+                })),
+                taxaFixa: (`R$ ` + taxaFixa.toFixed(2)),
+                consumosApartamentos: consumosApartamentos.map(consumo => consumo.toFixed(2)),
+                consumoApartamentosPrimeirafaixa: apartamentoPrimeiraFaixa.map(consumo => consumo.toFixed(2)),
+                resultadoApartamentosPrimeirafaixa: resultPrimeiraFaixa.map(resultado => `R$ ` + resultado.toFixed(2))
             };
 
             // Imprimir o objeto como JSON

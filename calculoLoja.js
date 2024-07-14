@@ -180,7 +180,15 @@ function passarFaixasLoja(valorConta, consumosApartamentos, consumoTotalApartame
             })),
             cobrancaPorLoja: cobrancasPorLoja.map((cobranca, index) => ({
                 [`${lojasArray[index]}`]: `R$ ${cobranca.toFixed(2)}`
-            }))
+            })),
+            taxaFixa: (`R$ ` + taxaFixaApartamentos.toFixed(2)),
+            consumosApartamentos: consumosApartamentos.map(consumo => consumo.toFixed(2)),
+            consumoApartamentosPrimeirafaixa: consumosApartamentos.map(consumo => consumo.toFixed(2)),
+            resultadoApartamentosPrimeirafaixa: resultPrimeiraFaixa.map(resultado => `R$ ` + resultado.toFixed(2)),
+            taxaFixaLoja: (`R$ ` + taxaFixaLoja.toFixed(2)),
+            consumosLoja: consumosLoja.map(consumo => consumo.toFixed(2)),
+            consumoLojaPrimeirafaixa: consumosLoja.map(consumo => consumo.toFixed(2)),
+            resultadoLojaPrimeirafaixa: resultPrimeiraFaixaLoja.map(resultado => `R$ ` + resultado.toFixed(2))
         };
 
         // Imprimir o objeto como JSON
@@ -248,7 +256,19 @@ function passarFaixasLoja(valorConta, consumosApartamentos, consumoTotalApartame
                 })),
                 cobrancaPorLoja: cobrancasPorLoja.map((cobranca, index) => ({
                     [`${lojasArray[index]}`]: `R$ ${cobranca.toFixed(2)}`
-                }))
+                })),
+                taxaFixa: (`R$ ` + taxaFixaApartamentos.toFixed(2)),
+                consumosApartamentos: consumosApartamentos.map(consumo => consumo.toFixed(2)),
+                consumoApartamentosPrimeirafaixa: apartamentoPrimeiraFaixa.map(consumo => consumo.toFixed(2)),
+                resultadoApartamentosPrimeirafaixa: resultPrimeiraFaixa.map(resultado => `R$ ` + resultado.toFixed(2)),
+                consumoApartamentosSegundafaixa: apartamentoSegundaFaixa.map(consumo => consumo.toFixed(2)),
+                resultadoApartamentosSegundafaixa: resultSegundaFaixa.map(resultado => `R$ ` + resultado.toFixed(2)),
+                taxaFixaLoja: (`R$ ` + taxaFixaLoja.toFixed(2)),
+                consumosLoja: consumosLoja.map(consumo => consumo.toFixed(2)),
+                consumoLojaPrimeirafaixa: apartamentoPrimeiraFaixa.slice(numberOfApartments).map(consumo => consumo.toFixed(2)),
+                resultadoLojaPrimeirafaixa: resultPrimeiraFaixaLoja.map(resultado => `R$ ` + resultado.toFixed(2)),
+                consumoLojaSegundafaixa: apartamentoSegundaFaixa.slice(numberOfApartments).map(consumo => consumo.toFixed(2)),
+                resultadoLojaSegundafaixa: resultSegundaFaixaLoja.map(resultado => `R$ ` + resultado.toFixed(2))
             };
 
             // Imprimir o objeto como JSON
@@ -327,7 +347,23 @@ function passarFaixasLoja(valorConta, consumosApartamentos, consumoTotalApartame
                     })),
                     cobrancaPorLoja: cobrancasPorLoja.map((cobranca, index) => ({
                         [`${lojasArray[index]}`]: `R$ ${cobranca.toFixed(2)}`
-                    }))
+                    })),
+                    taxaFixa: (`R$ ` + taxaFixaApartamentos.toFixed(2)),
+                    consumosApartamentos: consumosApartamentos.map(consumo => consumo.toFixed(2)),
+                    consumoApartamentosPrimeirafaixa: apartamentoPrimeiraFaixa.map(consumo => consumo.toFixed(2)),
+                    resultadoApartamentosPrimeirafaixa: resultPrimeiraFaixa.map(resultado => `R$ ` + resultado.toFixed(2)),
+                    consumoApartamentosSegundafaixa: apartamentoSegundaFaixa.map(consumo => consumo.toFixed(2)),
+                    resultadoApartamentosSegundafaixa: resultSegundaFaixa.map(resultado => `R$ ` + resultado.toFixed(2)),
+                    consumoApartamentosTerceirafaixa: apartamentoTerceiraFaixa.map(consumo => consumo.toFixed(2)),
+                    resultadoApartamentosTerceirafaixa: resultTerceiraFaixa.map(resultado => `R$ ` + resultado.toFixed(2)),
+                    taxaFixaLoja: (`R$ ` + taxaFixaLoja.toFixed(2)),
+                    consumosLoja: consumosLoja.map(consumo => consumo.toFixed(2)),
+                    consumoLojaPrimeirafaixa: apartamentoPrimeiraFaixa.slice(numberOfApartments).map(consumo => consumo.toFixed(2)),
+                    resultadoLojaPrimeirafaixa: resultPrimeiraFaixaLoja.map(resultado => `R$ ` + resultado.toFixed(2)),
+                    consumoLojaSegundafaixa: apartamentoSegundaFaixa.slice(numberOfApartments).map(consumo => consumo.toFixed(2)),
+                    resultadoLojaSegundafaixa: resultSegundaFaixaLoja.map(resultado => `R$ ` + resultado.toFixed(2)),
+                    consumoLojaTerceirafaixa: apartamentoTerceiraFaixa.slice(numberOfApartments).map(consumo => consumo.toFixed(2)),
+                    resultadoLojaTerceirafaixa: resultTerceiraFaixaLoja.map(resultado => `R$ ` + resultado.toFixed(2))
                 };
 
                 // Imprimir o objeto como JSON
@@ -419,7 +455,28 @@ function passarFaixasLoja(valorConta, consumosApartamentos, consumoTotalApartame
                         })),
                         cobrancaPorLoja: cobrancasPorLoja.map((cobranca, index) => ({
                             [`${lojasArray[index]}`]: `R$ ${cobranca.toFixed(2)}`
-                        }))
+                        })),
+                        taxaFixa: (`R$ ` + taxaFixaApartamentos.toFixed(2)),
+                        consumosApartamentos: consumosApartamentos.map(consumo => consumo.toFixed(2)),
+                        consumoApartamentosPrimeirafaixa: apartamentoPrimeiraFaixa.map(consumo => consumo.toFixed(2)),
+                        resultadoApartamentosPrimeirafaixa: resultPrimeiraFaixa.map(resultado => `R$ ` + resultado.toFixed(2)),
+                        consumoApartamentosSegundafaixa: apartamentoSegundaFaixa.map(consumo => consumo.toFixed(2)),
+                        resultadoApartamentosSegundafaixa: resultSegundaFaixa.map(resultado => `R$ ` + resultado.toFixed(2)),
+                        consumoApartamentosTerceirafaixa: apartamentoTerceiraFaixa.map(consumo => consumo.toFixed(2)),
+                        resultadoApartamentosTerceirafaixa: resultTerceiraFaixa.map(resultado => `R$ ` + resultado.toFixed(2)),
+                        consumoApartamentosQuartafaixa: apartamentoQuartaFaixa.map(consumo => consumo.toFixed(2)),
+                        resultadoApartamentosQuartafaixa: resultQuartaFaixa.map(resultado => `R$ ` + resultado.toFixed(2)),
+                        taxaFixaLoja: (`R$ ` + taxaFixaLoja.toFixed(2)),
+                        consumosLoja: consumosLoja.map(consumo => consumo.toFixed(2)),
+                        consumoLojaPrimeirafaixa: apartamentoPrimeiraFaixa.slice(numberOfApartments).map(consumo => consumo.toFixed(2)),
+                        resultadoLojaPrimeirafaixa: resultPrimeiraFaixaLoja.map(resultado => `R$ ` + resultado.toFixed(2)),
+                        consumoLojaSegundafaixa: apartamentoSegundaFaixa.slice(numberOfApartments).map(consumo => consumo.toFixed(2)),
+                        resultadoLojaSegundafaixa: resultSegundaFaixaLoja.map(resultado => `R$ ` + resultado.toFixed(2)),
+                        consumoLojaTerceirafaixa: apartamentoTerceiraFaixa.slice(numberOfApartments).map(consumo => consumo.toFixed(2)),
+                        resultadoLojaTerceirafaixa: resultTerceiraFaixaLoja.map(resultado => `R$ ` + resultado.toFixed(2)),
+                        consumoLojaQuartafaixa: apartamentoQuartaFaixa.slice(numberOfApartments).map(consumo => consumo.toFixed(2)),
+                        resultadoLojaQuartafaixa: resultQuartaFaixaLoja.map(resultado => `R$ ` + resultado.toFixed(2))
+
                     };
 
                     // Imprimir o objeto como JSON
@@ -523,7 +580,31 @@ function passarFaixasLoja(valorConta, consumosApartamentos, consumoTotalApartame
                             })),
                             cobrancaPorLoja: cobrancasPorLoja.map((cobranca, index) => ({
                                 [`${lojasArray[index]}`]: `R$ ${cobranca.toFixed(2)}`
-                            }))
+                            })),
+                            taxaFixa: (`R$ ` + taxaFixaApartamentos.toFixed(2)),
+                            consumosApartamentos: consumosApartamentos.map(consumo => consumo.toFixed(2)),
+                            consumoApartamentosPrimeirafaixa: apartamentoPrimeiraFaixa.map(consumo => consumo.toFixed(2)),
+                            resultadoApartamentosPrimeirafaixa: resultPrimeiraFaixa.map(resultado => `R$ ` + resultado.toFixed(2)),
+                            consumoApartamentosSegundafaixa: apartamentoSegundaFaixa.map(consumo => consumo.toFixed(2)),
+                            resultadoApartamentosSegundafaixa: resultSegundaFaixa.map(resultado => `R$ ` + resultado.toFixed(2)),
+                            consumoApartamentosTerceirafaixa: apartamentoTerceiraFaixa.map(consumo => consumo.toFixed(2)),
+                            resultadoApartamentosTerceirafaixa: resultTerceiraFaixa.map(resultado => `R$ ` + resultado.toFixed(2)),
+                            consumoApartamentosQuartafaixa: apartamentoQuartaFaixa.map(consumo => consumo.toFixed(2)),
+                            resultadoApartamentosQuartafaixa: resultQuartaFaixa.map(resultado => `R$ ` + resultado.toFixed(2)),
+                            consumoApartamentosQuintafaixa: apartamentoQuintaFaixa.map(consumo => consumo.toFixed(2)),
+                            resultadoApartamentosQuintafaixa: resultQuintaFaixa.map(resultado => `R$ ` + resultado.toFixed(2)),
+                            taxaFixaLoja: (`R$ ` + taxaFixaLoja.toFixed(2)),
+                            consumosLoja: consumosLoja.map(consumo => consumo.toFixed(2)),
+                            consumoLojaPrimeirafaixa: apartamentoPrimeiraFaixa.slice(numberOfApartments).map(consumo => consumo.toFixed(2)),
+                            resultadoLojaPrimeirafaixa: resultPrimeiraFaixaLoja.map(resultado => `R$ ` + resultado.toFixed(2)),
+                            consumoLojaSegundafaixa: apartamentoSegundaFaixa.slice(numberOfApartments).map(consumo => consumo.toFixed(2)),
+                            resultadoLojaSegundafaixa: resultSegundaFaixaLoja.map(resultado => `R$ ` + resultado.toFixed(2)),
+                            consumoLojaTerceirafaixa: apartamentoTerceiraFaixa.slice(numberOfApartments).map(consumo => consumo.toFixed(2)),
+                            resultadoLojaTerceirafaixa: resultTerceiraFaixaLoja.map(resultado => `R$ ` + resultado.toFixed(2)),
+                            consumoLojaQuartafaixa: apartamentoQuartaFaixa.slice(numberOfApartments).map(consumo => consumo.toFixed(2)),
+                            resultadoLojaQuartafaixa: resultQuartaFaixaLoja.map(resultado => `R$ ` + resultado.toFixed(2)),
+                            consumoLojaQuintafaixa: apartamentoQuintaFaixa.slice(numberOfApartments).map(consumo => consumo.toFixed(2)),
+                            resultadoLojaQuintafaixa: resultQuintaFaixaLoja.map(resultado => `R$ ` + resultado.toFixed(2))
                         };
 
                         // Imprimir o objeto como JSON

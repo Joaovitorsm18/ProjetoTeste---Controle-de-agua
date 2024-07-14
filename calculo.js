@@ -183,7 +183,13 @@ function passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, 
             valorCondominio: valorCondomínio.toFixed(2),
             cobrancaPorApartamento: cobrancasPorApartamento.map((cobranca, index) => ({
                 [`${apartamentosArray[index]}`]: `R$ ${cobranca.toFixed(2)}`
-            }))
+            })),
+            taxaFixa: (`R$ ` + taxaFixa.toFixed(2)),
+            consumosApartamentos: consumosApartamentos.map(consumo => consumo.toFixed(2)),
+            consumoApartamentosPrimeirafaixa: apartamentoPrimeiraFaixa.map(consumo => consumo.toFixed(2)),
+            resultadoApartamentosPrimeirafaixa: resultPrimeiraFaixa.map(resultado => `R$ ` + resultado.toFixed(2)),
+            consumoApartamentosSegundafaixa: apartamentoSegundaFaixa.map(consumo => consumo.toFixed(2)),
+            resultadoApartamentosSegundafaixa: resultSegundaFaixa.map(resultado => `R$ ` + resultado.toFixed(2))
         };
 
         // Imprimir o objeto como JSON
@@ -246,7 +252,15 @@ function passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, 
                 valorCondominio: valorCondomínio.toFixed(2),
                 cobrancaPorApartamento: cobrancasPorApartamento.map((cobranca, index) => ({
                     [`${apartamentosArray[index]}`]: `R$ ${cobranca.toFixed(2)}`
-                }))
+                })),
+                taxaFixa: (`R$ ` + taxaFixa.toFixed(2)),
+                consumosApartamentos: consumosApartamentos.map(consumo => consumo.toFixed(2)),
+                consumoApartamentosPrimeirafaixa: apartamentoPrimeiraFaixa.map(consumo => consumo.toFixed(2)),
+                resultadoApartamentosPrimeirafaixa: resultPrimeiraFaixa.map(resultado => `R$ ` + resultado.toFixed(2)),
+                consumoApartamentosSegundafaixa: apartamentoSegundaFaixa.map(consumo => consumo.toFixed(2)),
+                resultadoApartamentosSegundafaixa: resultSegundaFaixa.map(resultado => `R$ ` + resultado.toFixed(2)),
+                consumoApartamentosTerceirafaixa: apartamentoTerceiraFaixa.map(consumo => consumo.toFixed(2)),
+                resultadoApartamentosTerceirafaixa: resultTerceiraFaixa.map(resultado => `R$ ` + resultado.toFixed(2))
             };
 
             // Imprimir o objeto como JSON
@@ -321,7 +335,17 @@ function passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, 
                     valorCondominio: valorCondomínio.toFixed(2),
                     cobrancaPorApartamento: cobrancasPorApartamento.map((cobranca, index) => ({
                         [`${apartamentosArray[index]}`]: `R$ ${cobranca.toFixed(2)}`
-                    }))
+                    })),
+                    taxaFixa: (`R$ ` + taxaFixa.toFixed(2)),
+                    consumosApartamentos: consumosApartamentos.map(consumo => consumo.toFixed(2)),
+                    consumoApartamentosPrimeirafaixa: apartamentoPrimeiraFaixa.map(consumo => consumo.toFixed(2)),
+                    resultadoApartamentosPrimeirafaixa: resultPrimeiraFaixa.map(resultado => `R$ ` + resultado.toFixed(2)),
+                    consumoApartamentosSegundafaixa: apartamentoSegundaFaixa.map(consumo => consumo.toFixed(2)),
+                    resultadoApartamentosSegundafaixa: resultSegundaFaixa.map(resultado => `R$ ` + resultado.toFixed(2)),
+                    consumoApartamentosTerceirafaixa: apartamentoTerceiraFaixa.map(consumo => consumo.toFixed(2)),
+                    resultadoApartamentosTerceirafaixa: resultTerceiraFaixa.map(resultado => `R$ ` + resultado.toFixed(2)),
+                    consumoApartamentosQuartafaixa: apartamentoQuartaFaixa.map(consumo => consumo.toFixed(2)),
+                    resultadoApartamentosQuartafaixa: resultQuartaFaixa.map(resultado => `R$ ` + resultado.toFixed(2))
                 };
 
                 // Imprimir o objeto como JSON
@@ -404,9 +428,20 @@ function passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, 
                         valorCondominio: valorCondomínio.toFixed(2),
                         cobrancaPorApartamento: cobrancasPorApartamento.map((cobranca, index) => ({
                             [`${apartamentosArray[index]}`]: `R$ ${cobranca.toFixed(2)}`
-                        }))
+                        })),
+                        taxaFixa: (`R$ ` + taxaFixa.toFixed(2)),
+                        consumosApartamentos: consumosApartamentos.map(consumo => consumo.toFixed(2)),
+                        consumoApartamentosPrimeirafaixa: apartamentoPrimeiraFaixa.map(consumo => consumo.toFixed(2)),
+                        resultadoApartamentosPrimeirafaixa: resultPrimeiraFaixa.map(resultado => `R$ ` + resultado.toFixed(2)),
+                        consumoApartamentosSegundafaixa: apartamentoSegundaFaixa.map(consumo => consumo.toFixed(2)),
+                        resultadoApartamentosSegundafaixa: resultSegundaFaixa.map(resultado => `R$ ` + resultado.toFixed(2)),
+                        consumoApartamentosTerceirafaixa: apartamentoTerceiraFaixa.map(consumo => consumo.toFixed(2)),
+                        resultadoApartamentosTerceirafaixa: resultTerceiraFaixa.map(resultado => `R$ ` + resultado.toFixed(2)),
+                        consumoApartamentosQuartafaixa: apartamentoQuartaFaixa.map(consumo => consumo.toFixed(2)),
+                        resultadoApartamentosQuartafaixa: resultQuartaFaixa.map(resultado => `R$ ` + resultado.toFixed(2)),
+                        consumoApartamentosQuintafaixa: apartamentoQuintaFaixa.map(consumo => consumo.toFixed(2)),
+                        resultadoApartamentosQuintafaixa: resultQuintaFaixa.map(resultado => `R$ ` + resultado.toFixed(2))
                     };
-
                     // Imprimir o objeto como JSON
                     console.log(JSON.stringify(resultado));
                 } else {
