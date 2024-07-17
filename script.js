@@ -65,7 +65,7 @@ async function runScript(valorConta, consumoConta, numberOfApartments, numberOfL
                 })),
                 taxaFixa: (`R$ ` + taxaFixa.toFixed(2)),
                 consumosApartamentos: consumosApartamentos.map(consumo => consumo.toFixed(2)),
-                consumoApartamentosPrimeirafaixa: apartamentoPrimeiraFaixa.map(consumo => consumo.toFixed(2)),
+                consumoApartamentosPrimeirafaixa: consumosApartamentos.map(consumo => consumo.toFixed(2)),
                 resultadoApartamentosPrimeirafaixa: resultPrimeiraFaixa.map(resultado => `R$ ` + resultado.toFixed(2))
             };
 
