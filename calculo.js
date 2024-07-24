@@ -135,7 +135,7 @@ function passarQuintaFaixa(consumosApartamentos) {
 }
 
 // função que pega todos os parâmetros necessários para calcular as faixas e retornar no console quando for a correta
-function passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, taxaFixa, consumoCondominio, valorCondomínio, apartamentosArray) {
+function passarFaixas(valorConta, consumoConta, consumosApartamentos, valorExcedente, numberOfApartments, taxaFixa, consumoCondominio, valorCondomínio, apartamentosArray) {
     firstTierRate = 3.83;
 
     //chamando a função para trasforamr consumos apartamentos em dois arrays
@@ -178,6 +178,8 @@ function passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, 
 
         // Construir o objeto de resultado
         const resultado = {
+            valorConta: valorConta,
+            consumoConta: consumoConta,
             valorFaixa1: firstTierRate.toFixed(4),
             valorFaixa2: secondTierRate.toFixed(4),
             valorCondominio: valorCondomínio.toFixed(2),
@@ -246,6 +248,8 @@ function passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, 
 
             // Construir o objeto de resultado
             const resultado = {
+                valorConta: valorConta,
+                consumoConta: consumoConta,
                 valorFaixa1: firstTierRate.toFixed(4),
                 valorFaixa2: secondTierRate.toFixed(4),
                 valorFaixa3: thirdTierRate.toFixed(4),
@@ -328,6 +332,8 @@ function passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, 
 
                 // Construir o objeto de resultado
                 const resultado = {
+                    valorConta: valorConta,
+                    consumoConta: consumoConta,
                     valorFaixa1: firstTierRate.toFixed(4),
                     valorFaixa2: secondTierRate.toFixed(4),
                     valorFaixa3: thirdTierRate.toFixed(4),
@@ -420,6 +426,8 @@ function passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, 
 
                     // Construir o objeto de resultado
                     const resultado = {
+                        valorConta: valorConta,
+                        consumoConta: consumoConta,
                         valorFaixa1: firstTierRate.toFixed(4),
                         valorFaixa2: secondTierRate.toFixed(4),
                         valorFaixa3: thirdTierRate.toFixed(4),

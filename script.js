@@ -31,7 +31,7 @@ async function runScript(valorConta, consumoConta, numberOfApartments, numberOfL
     //verifica se tem loja, caso verdadeiro, vai para calculoLojas
     numberOfLojas = parseInt(numberOfLojas)
     if (numberOfLojas != 0) {
-        passarFaixasLoja(valorConta, consumosApartamentos, consumoTotalApartamentos, numberOfApartments, numberOfLojas, consumoCondominio, valorCondomínio, apartamentosArray, lojasArray)
+        passarFaixasLoja(valorConta, consumoConta, consumosApartamentos, consumoTotalApartamentos, numberOfApartments, numberOfLojas, consumoCondominio, valorCondomínio, apartamentosArray, lojasArray)
     } else {
         // Cálculo do valor excedente (valor da conta menos o total das taxas fixas)
         const valorMinimoResidencial = taxaFixa * numberOfApartments;
@@ -58,6 +58,8 @@ async function runScript(valorConta, consumoConta, numberOfApartments, numberOfL
             });
 
             const resultado = {
+                valorConta: valorConta,
+                consumoConta: consumoConta,
                 valorFaixa1: firstTierRate.toFixed(4),
                 valorCondominio: valorCondomínio.toFixed(2),
                 cobrancaPorApartamento: cobrancasPorApartamento.map((cobranca, index) => ({
@@ -73,7 +75,7 @@ async function runScript(valorConta, consumoConta, numberOfApartments, numberOfL
             console.log(JSON.stringify(resultado));
         }
         else {
-            passarFaixas(consumosApartamentos, valorExcedente, numberOfApartments, taxaFixa, consumoCondominio, valorCondomínio, apartamentosArray)
+            passarFaixas(valorConta, consumoConta, consumosApartamentos, valorExcedente, numberOfApartments, taxaFixa, consumoCondominio, valorCondomínio, apartamentosArray)
         }
     }
 }

@@ -132,7 +132,7 @@ function passarQuintaFaixa(consumosApartamentos) {
 }
 
 // função que pega todos os parâmetros necessários para calcular as faixas e retornar no console quando for a correta
-function passarFaixasLoja(valorConta, consumosApartamentos, consumoTotalApartamentos, numberOfApartments, numberOfLojas, consumoCondominio, valorCondomínio, apartamentosArray, lojasArray) {
+function passarFaixasLoja(valorConta, consumoConta, consumosApartamentos, consumoTotalApartamentos, numberOfApartments, numberOfLojas, consumoCondominio, valorCondomínio, apartamentosArray, lojasArray) {
     const taxaFixaApartamentos = 36.93;
     const taxaFixaLoja = 59.84;
 
@@ -173,6 +173,8 @@ function passarFaixasLoja(valorConta, consumosApartamentos, consumoTotalApartame
         });
 
         const resultado = {
+            valorConta: valorConta,
+            consumoConta: consumoConta,
             valorFaixa1: firstTierRate.toFixed(4),
             valorCondominio: valorCondomínio.toFixed(2),
             cobrancaPorApartamento: cobrancasPorApartamento.map((cobranca, index) => ({
@@ -248,6 +250,8 @@ function passarFaixasLoja(valorConta, consumosApartamentos, consumoTotalApartame
 
 
             const resultado = {
+                valorConta: valorConta,
+                consumoConta: consumoConta,
                 valorFaixa1: firstTierRate.toFixed(4),
                 valorFaixa2: secondTierRate.toFixed(4),
                 valorCondominio: valorCondomínio.toFixed(2),
@@ -338,6 +342,8 @@ function passarFaixasLoja(valorConta, consumosApartamentos, consumoTotalApartame
                 });
 
                 const resultado = {
+                    valorConta: valorConta,
+                    consumoConta: consumoConta,
                     valorFaixa1: firstTierRate.toFixed(4),
                     valorFaixa2: secondTierRate.toFixed(4),
                     valorFaixa3: thirdTierRate.toFixed(4),
@@ -445,6 +451,8 @@ function passarFaixasLoja(valorConta, consumosApartamentos, consumoTotalApartame
                     });
 
                     const resultado = {
+                        valorConta: valorConta,
+                        consumoConta: consumoConta,
                         valorFaixa1: firstTierRate.toFixed(4),
                         valorFaixa2: secondTierRate.toFixed(4),
                         valorFaixa3: thirdTierRate.toFixed(4),
@@ -569,6 +577,8 @@ function passarFaixasLoja(valorConta, consumosApartamentos, consumoTotalApartame
                         });
 
                         const resultado = {
+                            valorConta: valorConta,
+                            consumoConta: consumoConta,
                             valorFaixa1: firstTierRate.toFixed(4),
                             valorFaixa2: secondTierRate.toFixed(4),
                             valorFaixa3: thirdTierRate.toFixed(4),
